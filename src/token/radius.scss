@@ -1,0 +1,51 @@
+$radius: (
+    1: 0px,
+    2: 2px,
+    3: 4px,
+    4: 6px,
+    5: 8px,
+    6: 10px,
+    7: 50%,
+);
+
+@each $key, $value in $radius {
+    .#{$namespace}-radius#{$key} {
+        border-radius: $value;
+    }
+
+    .#{$namespace}-radius-tl#{$key} {
+        border-top-left-radius: $value;
+    }
+
+    .#{$namespace}-radius-tr#{$key} {
+        border-top-right-radius: $value;
+    }
+
+    .#{$namespace}-radius-bl#{$key} {
+        border-bottom-left-radius: $value;
+    }
+
+    .#{$namespace}-radius-br#{$key} {
+        border-bottom-right-radius: $value;
+    }
+
+    .#{$namespace}-radius-t#{$key} {
+        border-top-left-radius: $value;
+        border-top-right-radius: $value;
+    }
+
+    .#{$namespace}-radius-l#{$key} {
+        border-top-left-radius: $value;
+        border-bottom-left-radius: $value;
+    }
+
+    .#{$namespace}-radius-b#{$key} {
+        border-bottom-right-radius: $value;
+        border-bottom-left-radius: $value;
+    }
+
+    .#{$namespace}-radius-l#{$key} {
+        border-top-left-radius: $value;
+        border-bottom-left-radius: $value;
+    }
+}

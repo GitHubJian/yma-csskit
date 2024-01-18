@@ -1,0 +1,19 @@
+{
+    "name": "yma-uikit",
+    "version": "1.0.0",
+    "description": "整理使用过的 UI 原子库",
+    "main": "./src/index.scss",
+    "style": "./src/index.scss",
+    "scripts": {},
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/GitHubJian/yma-uikit.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/GitHubJian/yma-uikit/issues"
+    },
+    "homepage": "https://github.com/GitHubJian/yma-uikit#readme"
+}

@@ -1,0 +1,11 @@
+@import './color.scss';
+
+$gradient: (
+    1: 180deg rgba($blue6, 50%) 0% rgba($blue6, 0%) 99%,
+);
+
+@each $key, $value in $gradient {
+    .#{$namespace}-lg#{$key} {
+        background-color: linear-gradient($value);
+    }
+}

@@ -1,0 +1,13 @@
+@import './color.scss';
+
+$shadow: (
+    1: inset 0 0 6px 0 $blue4,
+    2: inset 0 0 21px 0 $blue6,
+    3: 0 0 4px #000000,
+);
+
+@each $key, $value in $shadow {
+    .#{$namespace}-shadow#{$key} {
+        box-shadow: $value;
+    }
+}

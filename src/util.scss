@@ -1,0 +1,120 @@
+.#{$namespace}-vr {
+    display: inline-block;
+    align-self: stretch;
+    width: 1px;
+    min-height: 1em;
+    background-color: rgb(33, 37, 41);
+    opacity: 0.25;
+}
+
+@mixin text-truncate() {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.#{$namespace}-text-truncate {
+    @include text-truncate();
+}
+
+@mixin clearfix() {
+    &::after {
+        display: block;
+        clear: both;
+        content: '';
+    }
+}
+
+.#{$namespace}-clearfix {
+    @include clearfix();
+}
+
+@mixin generate-utility($utility) {
+    $values: map-get($utility, values);
+
+    @if type-of($values) == 'string' or type-of(nth($values, 1)) != 'list' {
+        $values: zip($values, $values);
+    }
+
+    @each $key, $value in $values {
+        $properties: map-get($utility, property);
+
+        $property-class: if(
+            map-has-key($utility, class),
+            map-get($utility, class),
+            nth($properties, 1)
+        );
+
+        $property-class: if($property-class == null, '', $property-class);
+
+        $property-class-modifier: if(
+            $key,
+            if($property-class == '', '', '-') + $key,
+            ''
+        );
+
+        @if $value != null {
+            .#{$namespace + '-' + $property-class + $property-class-modifier} {
+                @each $property in $properties {
+                    #{$property}: $value;
+                }
+            }
+        }
+    }
+}
+
+$utilities: (
+    'align': (
+        property: vertical-align,
+        class: align,
+        values: baseline top middle bottom text-bottom text-top,
+    ),
+    'float': (
+        property: float,
+        values: (
+            start: left,
+            end: right,
+            none: none,
+        ),
+    ),
+    'overflow': (
+        property: overflow,
+        values: auto hidden visible scroll,
+    ),
+    'translate-middle': (
+        property: transform,
+        class: translate-middle,
+        values: (
+            null: translate(-50%, -50%),
+            x: translateX(-50%),
+            y: translateY(-50%),
+        ),
+    ),
+    'flex': (
+        property: flex,
+        values: (
+            fill: 1 1 auto,
+        ),
+    ),
+    'flex-direction': (
+        property: flex-direction,
+        class: flex,
+        values: row column row-reverse column-reverse,
+    ),
+    'padding': (
+        property: padding,
+        class: p,
+        values: $spacing,
+    ),
+    'padding-left': (
+        property: padding-left,
+        class: pl,
+        values: $spacing,
+    ),
+);
+
+@each $key, $utility in $utilities {
+    @if type-of($utility) == 'map' {
+        @include generate-utility($utility);
+    }
+}

@@ -1,0 +1,45 @@
+@import './debug.scss';
+
+$spacing: (
+    0: 0px,
+    1: 4px,
+    2: 8px,
+    3: 12px,
+    4: 16px,
+    5: 20px,
+);
+
+$map: (
+    mt: margin-top,
+    mr: margin-right,
+    mb: margin-bottom,
+    ml: margin-left,
+    m: margin,
+    mx: margin-left margin-right,
+    my: margin-top margin-bottom,
+    pt: patting-top,
+    pr: patting-right,
+    pb: patting-bottom,
+    pl: patting-left,
+    p: patting,
+    px: patting-left patting-right,
+    py: patting-top patting-bottom,
+);
+
+@each $i, $value in $spacing {
+    @each $key, $prop in $map {
+        $props: $prop;
+
+        @if type-of($props) == 'string' {
+            .#{$namespace}-#{$key}#{$i} {
+                #{$prop}: $value;
+            }
+        } @else {
+            .#{$namespace}-#{$key}#{$i} {
+                @each $pKey in $props {
+                    #{$pKey}: $value;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,107 @@
+$red1: #400202;
+$red2: #730303;
+$red3: #990c0c;
+$red4: #bf1919;
+$red5: #e62929;
+$red6: #ff5050;
+$red7: #ff969a;
+$red8: #ffbdc0;
+$red9: #ffe6e7;
+$red10: #fff0f1;
+
+$red: (
+    1: $red1,
+    2: $red2,
+    3: $red3,
+    4: $red4,
+    5: $red5,
+    6: $red6,
+    7: $red7,
+    8: $red8,
+    9: $red9,
+    10: $red10,
+);
+
+$pink1: #400717;
+$pink2: #730d2a;
+$pink3: #991841;
+$pink4: #bf285d;
+$pink5: #e63c7d;
+$pink6: #ff62a3;
+$pink7: #ffa3cd;
+$pink8: #ffc4e0;
+$pink9: #ffe8f3;
+$pink10: #fff0f7;
+
+$pink: (
+    1: $pink1,
+    2: $pink2,
+    3: $pink3,
+    4: $pink4,
+    5: $pink5,
+    6: $pink6,
+    7: $pink7,
+    8: $pink8,
+    9: $pink9,
+    10: $pink10,
+);
+
+$blue1: #001259;
+$blue2: #00218c;
+$blue3: #0936b3;
+$blue4: #1650d9;
+$blue5: #266eff;
+$blue6: #3d81ff;
+$blue7: #8ab5ff;
+$blue8: #b5d1ff;
+$blue9: #e0edff;
+$blue10: #f0f6ff;
+
+$blue: (
+    1: $blue1,
+    2: $blue2,
+    3: $blue3,
+    4: $blue4,
+    5: $blue5,
+    6: $blue6,
+    7: $blue7,
+    8: $blue8,
+    9: $blue9,
+    10: $blue10,
+);
+
+$colors: (
+    redColor: $red,
+    pinkColor: $pink,
+    blueColor: $blue,
+);
+
+@each $key, $color in $colors {
+    @each $i, $value in $color {
+        $real: str-slice($key, 1, str-length($key) - str-length('color'));
+
+        .#{$namespace}-#{$real}#{$i} {
+            color: $value;
+        }
+    }
+}
+
+@each $key, $color in $colors {
+    @each $i, $value in $color {
+        $real: str-slice($key, 1, str-length($key) - str-length('color'));
+
+        .#{$namespace}-bg-#{$real}#{$i} {
+            background-color: $value;
+        }
+    }
+}
+
+@each $key, $color in $colors {
+    @each $i, $value in $color {
+        $real: str-slice($key, 1, str-length($key) - str-length('color'));
+
+        .#{$namespace}-border-#{$real}#{$i} {
+            border-color: $value;
+        }
+    }
+}

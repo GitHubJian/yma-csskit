@@ -1,0 +1,21 @@
+body:before {
+    color: #c93900;
+    font-family: 'Andale Mono', monospace;
+    display: block;
+    white-space: pre;
+}
+
+$debug: '';
+@function debug($d: '') {
+    $debug: $debug + '» #{inspect($d)} \A' !global;
+
+    @return $debug;
+}
+
+@mixin debug($d) {
+    $debug: debug($d);
+
+    body:before {
+        content: '#{$debug}';
+    }
+}

@@ -1,0 +1,39 @@
+$fontWeight: (
+    2: 400,
+    3: 500,
+);
+
+$fontSize: (
+    1: 12px,
+    2: 14px,
+    3: 16px,
+    4: 18px,
+    5: 20px,
+    6: 24px,
+    7: 36px,
+    8: 40px,
+    9: 48px,
+);
+
+$lineHeight: (
+    1: 1.4,
+    2: 1.57,
+);
+
+@each $key, $value in $fontWeight {
+    .#{$namespace}-w#{$key} {
+        font-weight: $value;
+    }
+}
+
+@each $key, $value in $fontSize {
+    .#{$namespace}-t#{$key} {
+        font-size: $value;
+    }
+}
+
+@each $key, $value in $lineHeight {
+    .#{$namespace}-lh#{$key} {
+        line-height: $value;
+    }
+}
