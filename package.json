@@ -1,19 +1,19 @@
 {
-    "name": "yma-uikit",
+    "name": "yma-csskit",
     "version": "1.0.0",
-    "description": "整理使用过的 UI 原子库",
+    "description": "常见的CSS原子类 & 构建 BEM 规范",
     "main": "./src/index.scss",
     "style": "./src/index.scss",
     "scripts": {},
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/GitHubJian/yma-uikit.git"
+        "url": "git+https://github.com/GitHubJian/yma-csskit.git"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/GitHubJian/yma-uikit/issues"
+        "url": "https://github.com/GitHubJian/yma-csskit/issues"
     },
-    "homepage": "https://github.com/GitHubJian/yma-uikit#readme"
+    "homepage": "https://github.com/GitHubJian/yma-csskit#readme"
 }

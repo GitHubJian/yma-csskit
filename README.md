@@ -1,19 +1,22 @@
-# YMA UIKIT
+# YMA CSSKIT
 
-整理使用过的 UI 原子库
+常见的 CSS 原子类 & 构建 BEM 规范
 
 ## Install
 
 ```sh
-npm install yma-uikit
+npm install yma-csskit
 ```
 
 ## Usage
 
 ```scss
-@import 'yma-uikit';
+@import 'yma-csskit';
 
-// 自定义 Namespace
+// BEM
 $namespace: 'test';
-@import 'yma-uikit/novar.scss';
+@import 'yma-csskit/bem.scss';
+
+// reset.css
+@import 'yma-csskit/reset.css';
 ```
